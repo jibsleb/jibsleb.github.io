@@ -27,11 +27,11 @@
 
 /* start corps de la page */
 :root {
-    --myCVColorTheme: rgb(27,29,39);
+    --myCVColorTheme: rgb(27, 29, 39);
     --myTrainingsColorTheme: rgb(7, 41, 72);
     --aboutMeColorTheme: rgb(72, 111, 130);
     --myExperienceColorTheme: rgb(49, 94, 93);
-    --mySkillsColorTheme: rgb(0,77,19);
+    --mySkillsColorTheme: rgb(0, 77, 19);
 }
 
 .myCVTheme {
@@ -182,15 +182,45 @@ footer {
 
 /* start animations ******************************************************************************/
 /* start auréole dorée au survol de l'image centrale */
-.aboutMe:hover .myPicture {
+.myPicture.lightedOn {
     border: 3px solid rgb(253, 147, 1);
+    transition: ease-in-out;
+    transition-duration: 1s;
+}
+
+.myPicture.lightedOff {
     transition: ease-in-out;
     transition-duration: 1s;
 }
 
 /* end auréole dorée au survol de l'image centrale */
 
-/* start apparition des menus au survol de l'image */
+/* start rotation flèche menu au survol de l'image centrale */
+.arrowLeft.rotationOn {
+    transition: ease-in-out;
+    transition-duration: 1s;
+    transform: rotate(180deg);
+}
+
+.arrowLeft.rotationOff {
+    transition: ease-in-out;
+    transition-duration: 1s;
+}
+
+.arrowRight.rotationOn {
+    transition: ease-in-out;
+    transition-duration: 1s;
+    transform: rotate(-180deg);
+}
+
+.arrowRight.rotationOff {
+    transition: ease-in-out;
+    transition-duration: 1s;
+}
+
+/* end rotation flèche menu au survol de l'image centrale */
+
+/* start apparition des menus au survol de l'image centrale */
 .pageHeaderContainer:hover .pageHeaderMenu .menuItem {
     display: flex;
     justify-content: center;
@@ -209,6 +239,9 @@ footer {
     align-items: center;
     transition: 1s ease-in-out;
 }
+
+/* end apparition des menus au survol de l'image centrale */
+
 
 /* Start soulignement des éléments du menu lors de leur survol */
 .pageHeaderMenu li.underlined a {
