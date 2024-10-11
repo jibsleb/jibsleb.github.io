@@ -1,0 +1,280 @@
+/* start mise page *******************************************************************************/
+
+/* start police importées */
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('myFonts/SfProDisplayRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('myFonts/SfProDisplayBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('myFonts/SfProDisplayHeavyItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* end police importées */
+
+
+/* start corps de la page */
+:root {
+    --myCVColorTheme: rgb(27,29,39);
+    --myTrainingsColorTheme: rgb(7, 41, 72);
+    --aboutMeColorTheme: rgb(72, 111, 130);
+    --myExperienceColorTheme: rgb(49, 94, 93);
+    --mySkillsColorTheme: rgb(0,77,19);
+}
+
+.myCVSectionTheme {
+    --colorTheme: var(--myCVColorTheme);
+}
+
+.myTrainingsSectionTheme {
+    --colorTheme: var(--myTrainingsColorTheme);
+}
+
+.aboutMeSectionTheme {
+    --colorTheme: var(--aboutMeColorTheme);
+}
+
+.myExperienceSectionTheme {
+    --colorTheme: var(--myExperienceColorTheme);
+}
+
+.mySkillsSectionTheme {
+    --colorTheme: var(--mySkillsColorTheme);
+    --
+}
+
+body {
+    background-color: var(--colorTheme);
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: medium;
+    color: white;
+    margin: 0;
+    padding-left: 10em;
+    padding-right: 10em;
+}
+
+/* end corps de la page */
+
+/* start Header de navigation */
+.pageHeaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid white;
+    border-radius: 1em;
+    height: 50px;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.pageHeaderNav {
+    width: 100%;
+}
+
+.pageHeaderMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pageHeaderMenu .menuItem {
+    display: none;
+    flex: 1;
+    text-align: center;
+}
+
+.pageHeaderMenu li.small {
+    flex: 0 0 10px;
+}
+
+.pageHeaderMenu li a {
+    display: block;
+    text-decoration: none;
+    color: var(--colorTheme);
+}
+
+.pictureContainer .myPicture {
+    height: 100px;
+    border: 3px solid white;
+    border-radius: 100%;
+}
+
+.arrowLeftContainer .arrowLeft,
+.arrowRightContainer .arrowRight {
+    scale: 0.5;
+}
+
+/* end Header de navigation */
+
+/* start gestion de l'affichage des sections */
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+/* end gestion de l'affichage des sections */
+
+/* start div, titre h1 et paragraphe */
+div {
+    border-radius: 1em;
+    border: 2px solid white;
+    margin-top: 1em;
+}
+
+h1 {
+    color: var(--colorTheme);
+    text-align: left;
+    width: 50%;
+    border-top-left-radius: 10px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100%);
+    margin: 0;
+    padding: 0.5em;
+}
+
+p {
+    margin: 1em;
+}
+
+/* end section A propose de moi */
+
+/* start menu civilState */
+.myCivilStateList,
+.myHobbiesList {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+/* end menu civilState */
+
+/* start footer */
+footer {
+    margin-top: 5px;
+}
+
+/* end footer */
+
+/* end mise page *********************************************************************************/
+
+/* start animations ******************************************************************************/
+/* start auréole dorée au survol de l'image centrale */
+.aboutMe:hover .myPicture {
+    border: 3px solid rgb(253, 147, 1);
+    transition: ease-in-out;
+    transition-duration: 1s;
+}
+
+/* end auréole dorée au survol de l'image centrale */
+
+/* start apparition des menus au survol de l'image */
+.pageHeaderContainer:hover .pageHeaderMenu .menuItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease-in-out;
+}
+
+.pageHeaderContainer:hover .arrowLeftContainer,
+.pageHeaderContainer:hover .arrowRightContainer {
+    flex: 0 0 50px;
+}
+
+.pageHeaderContainer:hover .pageHeaderMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease-in-out;
+}
+
+/* Start soulignement des éléments du menu lors de leur survol */
+.pageHeaderMenu li.underlined a {
+    position: relative;
+    font-weight: bold;
+    padding: 7px;
+}
+
+.pageHeaderMenu li.underlined a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 3px;
+    border-bottom: 3px solid transparent;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: 50% 50%;
+}
+
+.pageHeaderMenu li.underlined a:hover::after {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    border-bottom: 3px solid var(--colorTheme);
+    width: 90%;
+    transform: translateX(-50%) scaleX(0.9);
+}
+
+/* end soulignement des éléments du menu lors de leur survol */
+
+/* start cartes par dessus icônes de la section état civil */
+.myCivilStateList figure {
+    position: relative;
+    width: 150%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.myCivilStateList figcaption {
+    position: absolute;
+    margin: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    bottom: -100px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    text-align: center;
+    color: rgb(72, 111, 130);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.myCivilStateList figure:hover figcaption {
+    bottom: 0;
+}
+
+.myCivilStateList figcaption a {
+    text-decoration: none;
+    color: rgb(72, 111, 130);
+}
+
+.myCivilStateList figcaption a:hover {
+    text-decoration: none;
+}
+
+/* end cartes par dessus icônes de la section état civil */
+
+/* end animations ********************************************************************************/
