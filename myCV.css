@@ -137,7 +137,7 @@ section.active {
 div {
     border-radius: 1em;
     border: 2px solid white;
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
 h1 {
@@ -172,7 +172,8 @@ p {
 
 /* start footer */
 footer {
-    margin-top: 5px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 /* end footer */
