@@ -34,23 +34,23 @@
     --mySkillsColorTheme: rgb(0,77,19);
 }
 
-.myCVSectionTheme {
+.myCVTheme {
     --colorTheme: var(--myCVColorTheme);
 }
 
-.myTrainingsSectionTheme {
+.myTrainingsTheme {
     --colorTheme: var(--myTrainingsColorTheme);
 }
 
-.aboutMeSectionTheme {
+.aboutMeTheme {
     --colorTheme: var(--aboutMeColorTheme);
 }
 
-.myExperienceSectionTheme {
+.myExperienceTheme {
     --colorTheme: var(--myExperienceColorTheme);
 }
 
-.mySkillsSectionTheme {
+.mySkillsTheme {
     --colorTheme: var(--mySkillsColorTheme);
 }
 
@@ -123,7 +123,7 @@ body {
 /* end Header de navigation */
 
 /* start gestion de l'affichage des sections */
-section {
+section.inactive {
     display: none;
 }
 
