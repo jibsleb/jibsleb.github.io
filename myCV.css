@@ -52,7 +52,6 @@
 
 .mySkillsSectionTheme {
     --colorTheme: var(--mySkillsColorTheme);
-    --
 }
 
 body {
@@ -63,8 +62,8 @@ body {
     font-size: medium;
     color: white;
     margin: 0;
-    padding-left: 10em;
-    padding-right: 10em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 /* end corps de la page */
