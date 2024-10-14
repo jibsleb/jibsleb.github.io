@@ -189,23 +189,22 @@ p {
     margin: 1em;
 }
 
-p.fontColor1{
+p.fontColor1 {
     color: var(--themeFontColor1);
 }
 
-p.fontColor2{
+p.fontColor2 {
     color: var(--themeFontColor2);
 }
 
-p.fontColor3{
+p.fontColor3 {
     color: var(--themeFontColor3);
 }
 
 /* end section A propose de moi */
 
 /* start menu civilState */
-.myCivilStateList,
-.myHobbiesList {
+.myCivilStateList {
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -216,6 +215,48 @@ p.fontColor3{
 }
 
 /* end menu civilState */
+
+/* start list myHobbies */
+.myHobbiesMainList {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.myHobbiesMainListItem {
+    width: 20%;
+}
+
+.myHobbiesSubList {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.myHobbiesSubSubList {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.myHobbiesSubSubListItem {
+    width: 10%;
+    padding: 0;
+    margin: 0;
+}
+
+/* end list myHobbies */
 
 /* start footer */
 footer {
@@ -340,40 +381,40 @@ h1.lightedOff {
 /* end soulignement des éléments du menu lors de leur survol */
 
 /* start cartes par dessus icônes de la section état civil */
-.myCivilStateList figure {
+figure {
     position: relative;
-    width: 150%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
 }
 
-.myCivilStateList figcaption {
+figcaption {
     position: absolute;
     margin: 0;
     right: 0;
-    left: 0;
+    left: -50px;
     height: 100px;
     bottom: -100px;
     background-color: rgba(255, 255, 255, 0.8);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     text-align: center;
-    color: rgb(72, 111, 130);
+    color: var(--themeBackgroundColor);
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
 }
 
-.myCivilStateList figure:hover figcaption {
+figure:hover figcaption {
     bottom: 0;
 }
 
-.myCivilStateList figcaption a {
+figcaption a {
     text-decoration: none;
-    color: rgb(72, 111, 130);
+    color: var(--themeBackgroundColor);
 }
 
-.myCivilStateList figcaption a:hover {
+figcaption a:hover {
     text-decoration: none;
 }
 
