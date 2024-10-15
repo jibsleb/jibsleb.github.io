@@ -1,6 +1,8 @@
 /* start animations du menu de navigation ********************************************************/
 const menuItems = document.querySelectorAll('.pageHeaderMenu .menuItem a');
+const menuHeader = document.querySelector('.pageHeaderMenu');
 const menuCentralPicture = document.querySelector('.pageHeaderMenu .pictureContainer .aboutMe img');
+
 
 /* start détection survol de l'image centrale du menu */
 menuCentralPicture.addEventListener(
@@ -26,7 +28,7 @@ menuCentralPicture.addEventListener(
 /* end détection survol de l'image centrale du menu */
 
 /* start détection du non survol de l'image centrale du menu */
-menuCentralPicture.addEventListener(
+menuHeader.addEventListener(
     'mouseout', function(){
         const rotateItems = document.querySelectorAll('.rotationOn')
         rotateItems.forEach(

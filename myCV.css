@@ -33,6 +33,7 @@
     --themeFontColor1: rgba(255, 255, 255, 1);
     --themeFontColor2: rgba(72, 111, 130, 1);
     --themeFontColor3: rgba(66, 104, 60, 1);
+    --themeTransitionDuration: 1s;
 }
 
 .myTrainingsTheme {
@@ -42,6 +43,7 @@
     --themeFontColor1: rgba(255, 255, 255, 1);
     --themeFontColor2: rgba(207, 246, 126, 1);
     --themeFontColor3: rgba(66, 104, 60, 1);
+    --themeTransitionDuration: 1s;
 }
 
 .aboutMeTheme {
@@ -51,6 +53,7 @@
     --themeFontColor1: rgba(255, 255, 255, 1);
     --themeFontColor2: rgba(0, 0, 0, 0);
     --themeFontColor3: rgba(0, 0, 0, 0);
+    --themeTransitionDuration: 1s;
 }
 
 .myExperienceTheme {
@@ -60,6 +63,7 @@
     --themeFontColor1: rgba(255, 255, 255, 1);
     --themeFontColor2: rgba(0, 0, 0, 0);
     --themeFontColor3: rgba(0, 0, 0, 0);
+    --themeTransitionDuration: 1s;
 }
 
 .mySkillsTheme {
@@ -69,6 +73,7 @@
     --themeFontColor1: rgba(255, 255, 255, 1);
     --themeFontColor2: rgba(72, 111, 130, 1);
     --themeFontColor3: rgba(27, 29, 30, 1);
+    --themeTransitionDuration: 1s;
 }
 
 body {
@@ -146,13 +151,14 @@ body {
     position: relative;
     z-index: 2;
     height: 100px;
-    border: 3px solid white;
+    border: 2px solid white;
     border-radius: 100%;
 }
 
 .arrowLeftContainer .arrowLeft,
 .arrowRightContainer .arrowRight {
-    scale: 0.5;
+    fill: var(--themeBackgroundColor);
+    scale: 0.4;
 }
 
 /* end Header de navigation */
@@ -270,37 +276,66 @@ footer {
 
 /* start animations ******************************************************************************/
 /* start auréole dorée au survol de l'image centrale */
-.myPicture.lightedOn {
-    border: 3px solid var(--themeLightedColor);
-    transition: ease-in-out;
-    transition-duration: 1s;
+@keyframes heartbeat1 {
+    0% {
+        border: 2px solid var(--themeFontColor1);
+    }
+
+    20% {
+        border: 2px solid var(--themeLightedColor);
+    }
+
+    30% {
+        border: 2px solid var(--themeFontColor1);
+    }
+
+    40% {
+        border: 2px solid var(--themeLightedColor);
+    }
+
+    100% {
+        border: 2px solid var(--themeFontColor1);
+    }
 }
 
-.myPicture.lightedOff {
-    transition: ease-in-out;
-    transition-duration: 1s;
+@keyframes heartbeat2 {
+    0% {
+        background: linear-gradient(to right, var(--themeFontColor1) 10%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    20% {
+        background: linear-gradient(to right, var(--themeLightedColor) 10%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    30% {
+        background: linear-gradient(to right, var(--themeFontColor1) 10%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    40% {
+        background: linear-gradient(to right, var(--themeLightedColor) 10%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    100% {
+        background: linear-gradient(to right, var(--themeFontColor1) 10%, rgba(255, 255, 255, 0) 100%);
+    }
+}
+
+.myPicture.lightedOn {
+    animation-name: heartbeat1;
+    animation-duration: var(--themeTransitionDuration);
+    animation-iteration-count: 1;
 }
 
 div.lightedOn {
-    border: 2px solid rgb(253, 147, 1);
-    transition: ease-in-out;
-    transition-duration: 1s;
-}
-
-div.lightedOff {
-    transition: ease-in-out;
-    transition-duration: 1s;
+    animation-name: heartbeat1;
+    animation-duration: var(--themeTransitionDuration);
+    animation-iteration-count: 1;
 }
 
 h1.lightedOn {
-    background: linear-gradient(to right, var(--themeLightedColor) 10%, rgba(255, 255, 255, 0) 100%);
-    transition: ease-in-out;
-    transition-duration: 1s;
-}
-
-h1.lightedOff {
-    transition: ease-in-out;
-    transition-duration: 1s;
+    animation-name: heartbeat2;
+    animation-duration: var(--themeTransitionDuration);
+    animation-iteration-count: 1;
 }
 
 /* end auréole dorée au survol de l'image centrale */
@@ -308,24 +343,24 @@ h1.lightedOff {
 /* start rotation flèche menu au survol de l'image centrale */
 .arrowLeft.rotationOn {
     transition: ease-in-out;
-    transition-duration: 1s;
+    transition-duration: var(--themeTransitionDuration);
     transform: rotate(180deg);
 }
 
 .arrowLeft.rotationOff {
     transition: ease-in-out;
-    transition-duration: 1s;
+    transition-duration: var(--themeTransitionDuration);
 }
 
 .arrowRight.rotationOn {
     transition: ease-in-out;
-    transition-duration: 1s;
+    transition-duration: var(--themeTransitionDuration);
     transform: rotate(-180deg);
 }
 
 .arrowRight.rotationOff {
     transition: ease-in-out;
-    transition-duration: 1s;
+    transition-duration: var(--themeTransitionDuration);
 }
 
 /* end rotation flèche menu au survol de l'image centrale */
@@ -335,7 +370,8 @@ h1.lightedOff {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s ease-in-out;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
 }
 
 .pageHeaderContainer:hover .arrowLeftContainer,
@@ -347,7 +383,8 @@ h1.lightedOff {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s ease-in-out;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
 }
 
 /* end apparition des menus au survol de l'image centrale */
@@ -383,8 +420,8 @@ h1.lightedOff {
 /* start cartes par dessus icônes de la section état civil */
 figure {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 250px;
+    height: 100px;
     overflow: hidden;
 }
 
@@ -392,7 +429,7 @@ figcaption {
     position: absolute;
     margin: 0;
     right: 0;
-    left: -50px;
+    left: 0;
     height: 100px;
     bottom: -100px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -401,7 +438,7 @@ figcaption {
     text-align: center;
     color: var(--themeBackgroundColor);
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: var(--themeTransitionDuration);
     transition-timing-function: ease-out;
 }
 
