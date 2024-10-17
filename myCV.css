@@ -12,7 +12,6 @@
     font-family: 'SF Pro Display';
     src: url('myFonts/SfProDisplayBold.otf') format('opentype');
     font-weight: bold;
-    font-style: normal;
 }
 
 @font-face {
@@ -49,7 +48,7 @@
 .aboutMeTheme {
     --themeBackgroundColor: rgba(72, 111, 130, 1);
     --themeMenuColor: rgba(255, 255, 255, 0.5);
-    --themeLightedColor: rgba(253, 147, 1, 1);
+    --themeLightedColor: rgba(255, 235, 156, 1);
     --themeFontColor1: rgba(255, 255, 255, 1);
     --themeFontColor2: rgba(0, 0, 0, 0);
     --themeFontColor3: rgba(0, 0, 0, 0);
@@ -77,57 +76,87 @@
 }
 
 body {
-    background-color: var(--themeBackgroundColor);
+    /* Mise en forme textuelle */
     font-family: 'SF Pro Display', sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: medium;
-    color: white;
-    margin: 0;
+    color: var(--themeFontColor1);
+
+    /* mise en forme bloc / boîte */
     padding-left: 2em;
     padding-right: 2em;
+    margin: 0;
+
+    /* Mise en forme arrière-plan et bordure */
+    background-color: var(--themeBackgroundColor);
 }
 
 /* end corps de la page */
 
 /* start Header de navigation */
-.pageHeaderContainer {
+header.pageHeaderContainer {
+    /* mise en forme bloc / boîte */
+    width: 100%;
+    height: 150px;
+    padding: 0;
+    margin: 0;
+
+    /* Mise en page layout */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--themeMenuColor);
+    position: sticky;
+    top: 0;
+
+    /* Mise en forme arrière-plan et bordure */
+    background: linear-gradient(to bottom, var(--themeBackgroundColor) 80%, rgba(255, 255, 255, 0) 100%);
+}
+
+nav.pageHeaderNav {
+    /* mise en forme bloc / boîte */
+    width: 100%;
+    max-width: 100%;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+
+    /* Mise en page layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Mise en forme arrière-plan et bordure */
     border: 2px solid white;
     border-radius: 15px;
-    height: 50px;
-    margin-top: 3em;
-    margin-bottom: 3em;
-    position: sticky;
-    top: 3em;
+    background-color: var(--themeMenuColor);
 }
 
-.pageHeaderNav {
-    width: 100%;
-}
-
-.pageHeaderMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ul.pageHeaderMenu {
+    /* Mise en forme textuelle */
     list-style: none;
+
+    /* mise en forme bloc / boîte */
+    width: 100%;
     padding: 0;
+    margin: 0;
+
+    /* Mise en page layout */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.pageHeaderMenu .menuItem {
-    display: none;
-    flex: 1;
+ul.pageHeaderMenu li.menuItem {
+    display: block;
     text-align: center;
 }
 
-.pageHeaderMenu li.small {
-    flex: 0 0 10px;
+ul.pageHeaderMenu li.small {
+    flex: 0 0 auto;
 }
 
-.pageHeaderMenu li a {
+ul.pageHeaderMenu li a {
     display: block;
     text-decoration: none;
     color: var(--themeBackgroundColor);
@@ -160,7 +189,6 @@ body {
 .arrowLeftContainer .arrowLeft,
 .arrowRightContainer .arrowRight {
     fill: var(--themeBackgroundColor);
-    scale: 0.4;
 }
 
 /* end Header de navigation */
@@ -180,7 +208,7 @@ section.active {
 div.bordered {
     border-radius: 15px;
     border: 2px solid white;
-    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 h1 {
@@ -277,8 +305,8 @@ footer {
 /* end mise page *********************************************************************************/
 
 /* start animations ******************************************************************************/
-/* start auréole dorée au survol de l'image centrale */
-@keyframes heartbeat1 {
+/* Auréole dorée au survol*/
+@keyframes heartbeat {
     0% {
         border: 2px solid var(--themeFontColor1);
     }
@@ -295,54 +323,26 @@ footer {
         border: 2px solid var(--themeLightedColor);
     }
 
+    60% {
+        border: 2px solid var(--themeFontColor1);
+    }
+
+    80% {
+        border: 2px solid var(--themeFontColor1);
+    }
+
     100% {
         border: 2px solid var(--themeFontColor1);
     }
 }
 
-@keyframes heartbeat2 {
-    0% {
-        background: linear-gradient(to right, var(--themeFontColor1) 10%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    20% {
-        background: linear-gradient(to right, var(--themeLightedColor) 10%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    30% {
-        background: linear-gradient(to right, var(--themeFontColor1) 10%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    40% {
-        background: linear-gradient(to right, var(--themeLightedColor) 10%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    100% {
-        background: linear-gradient(to right, var(--themeFontColor1) 10%, rgba(255, 255, 255, 0) 100%);
-    }
-}
-
-.myPicture.lightedOn {
-    animation-name: heartbeat1;
+.lightedOn {
+    animation-name: heartbeat;
     animation-duration: var(--themeTransitionDuration);
     animation-iteration-count: 1;
 }
 
-div.lightedOn {
-    animation-name: heartbeat1;
-    animation-duration: var(--themeTransitionDuration);
-    animation-iteration-count: 1;
-}
-
-h1.lightedOn {
-    animation-name: heartbeat2;
-    animation-duration: var(--themeTransitionDuration);
-    animation-iteration-count: 1;
-}
-
-/* end auréole dorée au survol de l'image centrale */
-
-/* start rotation flèche menu au survol de l'image centrale */
+/* Rotation flèche menu au survol de l'image centrale */
 .arrowLeft.rotationOn {
     transition: ease-in-out;
     transition-duration: var(--themeTransitionDuration);
@@ -365,34 +365,7 @@ h1.lightedOn {
     transition-duration: var(--themeTransitionDuration);
 }
 
-/* end rotation flèche menu au survol de l'image centrale */
-
-/* start apparition des menus au survol de l'image centrale */
-.pageHeaderContainer:hover .pageHeaderMenu .menuItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: ease-in-out;
-    transition-duration: var(--themeTransitionDuration);
-}
-
-.pageHeaderContainer:hover .arrowLeftContainer,
-.pageHeaderContainer:hover .arrowRightContainer {
-    flex: 0 0 50px;
-}
-
-.pageHeaderContainer:hover .pageHeaderMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: ease-in-out;
-    transition-duration: var(--themeTransitionDuration);
-}
-
-/* end apparition des menus au survol de l'image centrale */
-
-
-/* Start soulignement des éléments du menu lors de leur survol */
+/* Soulignement des éléments du menu lors de leur survol */
 .pageHeaderMenu li.underlined a {
     position: relative;
     font-weight: bold;
@@ -417,9 +390,19 @@ h1.lightedOn {
     transform: translateX(-50%) scaleX(0.9);
 }
 
-/* end soulignement des éléments du menu lors de leur survol */
+/* Effet d'étirement lors d'arrivée en butée en scrollant */
+.stretch {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
 
-/* start cartes par dessus icônes de la section état civil */
+.contraft {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+/* Cartes par dessus icônes de la section état civil */
 figure {
     position: relative;
     width: 250px;
@@ -457,6 +440,6 @@ figcaption a:hover {
     text-decoration: none;
 }
 
-/* end cartes par dessus icônes de la section état civil */
+
 
 /* end animations ********************************************************************************/

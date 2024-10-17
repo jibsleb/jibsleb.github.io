@@ -1,11 +1,11 @@
-/* start animations du menu de navigation ********************************************************/
-const menuItems = document.querySelectorAll('.pageHeaderMenu .menuItem a');
+const menuNav = document.querySelector('.pageHeaderNav');
 const menuHeader = document.querySelector('.pageHeaderMenu');
+const menuItems = document.querySelectorAll('.pageHeaderMenu .menuItem a');
 const menuCentralPicture = document.querySelector('.pageHeaderMenu .pictureContainer .aboutMe img');
 
 
-/* start détection survol de l'image centrale du menu */
-menuCentralPicture.addEventListener(
+/* Détection survol du menu */
+menuNav.addEventListener(
     'mouseover', function(){
         /* rotation des flèches du menu */
         const rotateItems = document.querySelectorAll('.rotationOff')
@@ -15,20 +15,18 @@ menuCentralPicture.addEventListener(
                 item.classList.add('rotationOn');
             }   
         )
-        /* Halo doré autour des éléments */
-        const lightedItems = document.querySelectorAll('.lightedOff')
+        const lightedItems = document.querySelectorAll('.lightedOn')
         lightedItems.forEach(
             (item) => {
-                item.classList.remove('lightedOff');
-                item.classList.add('lightedOn');
+                item.classList.remove('lightedOn');
+                item.classList.add('lightedOff');
             }   
         )
     }
 )
-/* end détection survol de l'image centrale du menu */
 
-/* start détection du non survol de l'image centrale du menu */
-menuHeader.addEventListener(
+/* Détection du non survol du menu */
+menuNav.addEventListener(
     'mouseout', function(){
         const rotateItems = document.querySelectorAll('.rotationOn')
         rotateItems.forEach(
@@ -46,9 +44,8 @@ menuHeader.addEventListener(
         )
     }
 )
-/* end détection du non survol de l'image centrale du menu */
 
-/* start détection des clics sur les boutons du menu*/
+/* Détection des clics sur les boutons du menu */
 menuItems.forEach((item) => {
     item.addEventListener(
         'click', function (event) {
@@ -61,21 +58,28 @@ menuItems.forEach((item) => {
         }
     );
 });
-/* end détection clic sur les boutons du menu*/
 
-/* start détection clic sur l'image centrale du menu */
+/* Détection clic sur l'image centrale du menu */
 menuCentralPicture.addEventListener(
     'click', function (event) {
         const bodyClassName = document.body.className;
         event.preventDefault();
         if (bodyClassName != 'aboutMeTheme') {
             changeTheme('aboutMe');
-        };
+        } else {
+            const lightedItems = document.querySelectorAll('.lightedOff')
+            lightedItems.forEach(
+                (item) => {
+                    item.classList.remove('lightedOff');
+                    item.classList.add('lightedOn');
+                }   
+            )
+        }
     }
 );
 /* end détection clic sur l'image centrale du menu */
 
-/* start changement de thème et de contenu selon l'élément du menu cliqué */
+/* Changement de thème et de contenu selon l'élément du menu cliqué */
 function changeTheme(menuItemName) {
     const toggleItems = document.querySelectorAll('.active, .inactive')
     document.body.className = menuItemName + 'Theme';
@@ -91,29 +95,3 @@ function changeTheme(menuItemName) {
         }
     );
 }
-/* end changement de thème et de contenu selon l'élément du menu cliqué */
-
-menuCentralPicture.addEventListener(
-    'mouseover', function(){
-        const rotateItems = document.querySelectorAll('.rotationOff')
-        rotateItems.forEach(
-            (item) => {
-                item.classList.remove('rotationOff');
-                item.classList.add('rotationOn');
-            }   
-        )
-    }
-)
-
-menuCentralPicture.addEventListener(
-    'mouseout', function(){
-        const rotateItems = document.querySelectorAll('.rotationOn')
-        rotateItems.forEach(
-            (item) => {
-                item.classList.remove('rotationOn');
-                item.classList.add('rotationOff');
-            }   
-        )
-    }
-)
-/* end animations du menu de navigation ********************************************************/
