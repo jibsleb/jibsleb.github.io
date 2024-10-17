@@ -101,6 +101,8 @@ body {
     height: 50px;
     margin-top: 3em;
     margin-bottom: 3em;
+    position: sticky;
+    top: 3em;
 }
 
 .pageHeaderNav {
@@ -139,7 +141,7 @@ body {
 .pictureCircle {
     position: absolute;
     top: -7px;
-    left: -7px;
+    left: -8px;
     z-index: 1;
     width: 120px;
     height: 120px;
@@ -230,7 +232,7 @@ p.fontColor3 {
     text-decoration: none;
     padding: 0;
     margin: 0;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -240,7 +242,7 @@ p.fontColor3 {
 
 .myHobbiesSubList {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
     list-style-type: none;
     padding: 0;
@@ -249,7 +251,7 @@ p.fontColor3 {
 
 .myHobbiesSubSubList {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: row;
     list-style-type: none;
     padding: 0;
