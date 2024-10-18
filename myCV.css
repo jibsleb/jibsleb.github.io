@@ -115,7 +115,6 @@ header.pageHeaderContainer {
 
 nav.pageHeaderNav {
     /* mise en forme bloc / boîte */
-    width: 100%;
     max-width: 100%;
     height: 50px;
     padding: 0;
@@ -148,18 +147,31 @@ ul.pageHeaderMenu {
 }
 
 ul.pageHeaderMenu li.menuItem {
-    display: block;
     text-align: center;
+
+    /* Mise en page layout */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
 }
 
 ul.pageHeaderMenu li.small {
-    flex: 0 0 auto;
+    /* Mise en forme textuelle */
+    color: var(--themeBackgroundColor);
+
+    /* Mise en page layout */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
 }
 
 ul.pageHeaderMenu li a {
-    display: block;
+    /* Mise en forme textuelle */
     text-decoration: none;
     color: var(--themeBackgroundColor);
+
+    /* Mise en page layout */
+    /* display: block; */
 }
 
 .pictureContainer {
@@ -179,15 +191,25 @@ ul.pageHeaderMenu li a {
 }
 
 .pictureContainer .myPicture {
+    /* mise en forme bloc / boîte */
+    height: 100px;
+
+    /* Mise en page layout */
     position: relative;
     z-index: 2;
-    height: 100px;
+
+    /* Mise en forme arrière-plan et bordure */
     border: 2px solid white;
     border-radius: 100%;
 }
 
 .arrowLeftContainer .arrowLeft,
 .arrowRightContainer .arrowRight {
+    /* Mise en page layout */
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+
     fill: var(--themeBackgroundColor);
 }
 
@@ -363,6 +385,40 @@ footer {
 .arrowRight.rotationOff {
     transition: ease-in-out;
     transition-duration: var(--themeTransitionDuration);
+}
+
+/* déploiment menu lors du survol */
+nav.hidden {
+    width: 15%;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
+}
+
+li.hidden {
+    display: none;
+    width: 0;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
+}
+
+nav.visible {
+    width: 100%;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
+}
+
+li.small.visible {
+    display: flex;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
+    transition-delay: var(--themeTransitionDuration);
+}
+
+li.menuItem.visible {
+    display: block;
+    transition: ease-in-out;
+    transition-duration: var(--themeTransitionDuration);
+    transition-delay: var(--themeTransitionDuration);
 }
 
 /* Soulignement des éléments du menu lors de leur survol */

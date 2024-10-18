@@ -22,6 +22,20 @@ menuNav.addEventListener(
                 item.classList.add('lightedOff');
             }   
         )
+        const menuHiddenNav = document.querySelectorAll('.pageHeaderNav.hidden')
+        menuHiddenNav.forEach(
+            (item) => {
+                item.classList.remove('hidden');
+                item.classList.add('visible');
+            } 
+        )
+        const menuHiddenItems = document.querySelectorAll('.pageHeaderNav .hidden')
+        menuHiddenItems.forEach(
+            (item) => {
+                item.classList.remove('hidden');
+                item.classList.add('visible');
+            } 
+        )
     }
 )
 
@@ -41,6 +55,20 @@ menuNav.addEventListener(
                 item.classList.remove('lightedOn');
                 item.classList.add('lightedOff');
             }   
+        )
+        const menuHiddenNav = document.querySelectorAll('.pageHeaderNav.visible')
+        menuHiddenNav.forEach(
+            (item) => {
+                item.classList.remove('visible');
+                item.classList.add('hidden');
+            } 
+        )
+        const menuHiddenItems = document.querySelectorAll('.pageHeaderNav .visible')
+        menuHiddenItems.forEach(
+            (item) => {
+                item.classList.remove('visible');
+                item.classList.add('hidden');
+            } 
         )
     }
 )
